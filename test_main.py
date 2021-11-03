@@ -53,9 +53,8 @@ def test_exponential_forward():
 
     less_than = stats.less(20)
     greater_than = stats.greater(1)
-    between = stats.between(3, 6)
+    between = stats.between(-2, 90)
 
     assert less_than == 5, less_than
-    assert between == 4, between
+    assert between == 5, between
     assert greater_than == 5, greater_than
-

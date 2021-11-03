@@ -1,3 +1,2 @@
-big-O-calculator
 pytest
 matplotlib

@@ -119,12 +119,15 @@ def capture_and_query(size, status_percent) -> list:
     case.append(('greater()', (toc2 - tic2), (toc1 - tic1)))
 
     tic1 = time_function()
-    exp_bt = sum(100 >= n >= 1000 for n in capture.test_collection)
+    exp_bt = sum(100 <= n <= 1000 for n in capture.test_collection)
     toc1 = time_function()
 
     tic2 = time_function()
     between = stats.between(100, 1000)
     toc2 = time_function()
+
+    msg = f'BT -> 100 - 1000, exp: {exp_bt}, actual: {between}, {capture.test_collection}'
+    assert between == exp_bt, msg
 
     case.append(('between()', (toc2 - tic2), (toc1 - tic1)))
 
